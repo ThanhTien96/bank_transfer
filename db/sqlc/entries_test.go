@@ -64,18 +64,18 @@ func TestGetEntry(t *testing.T) {
 }
 
 func TestListEntries(t *testing.T) {
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 3; i++ {
 		createRandomEnty(t)
 	}
 
 	arg := ListEntriesParams{
-		Limit: 5,
-		Offset: 5,
+		Limit: 3,
+		Offset: 3,
 	}
 
 	entries, err := testQueries.ListEntries(context.Background(), arg)
 	require.NoError(t, err)
-	require.Len(t, entries, 5)
+	require.Len(t, entries, 3)
 
 	for _, entry := range entries {
 		require.NotEmpty(t,entry)

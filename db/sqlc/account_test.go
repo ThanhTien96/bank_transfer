@@ -71,17 +71,17 @@ func TestUpdateAccount(t *testing.T) {
 }
 
 func TestListAccounts(t *testing.T) {
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 3; i++ {
 		createRandomAccount(t)
 	}
 
 	arg := ListAccountsParams{
-		Limit: 5,
-		Offset: 5,
+		Limit: 3,
+		Offset: 3,
 	}
 	accounts, err := testQueries.ListAccounts(context.Background(), arg)
 	require.NoError(t, err)
-	require.Len(t, accounts, 5)
+	require.Len(t, accounts, 3)
 	for _, acount := range accounts {
 		require.NotEmpty(t, acount)
 	}

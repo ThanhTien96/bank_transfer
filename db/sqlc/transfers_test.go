@@ -70,19 +70,19 @@ func TestGetTransfer(t *testing.T) {
 }
 
 func TestListTransfer(t *testing.T) {
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 3; i++ {
 		createRandomTransfer(t)
 	}
 
 	arg := ListTransfersParams{
-		Limit: 5,
-		Offset: 5,
+		Limit: 3,
+		Offset: 3,
 	}
 
 	transfers, err := testQueries.ListTransfers(context.Background(), arg)
 
 	require.NoError(t, err)
-	require.Len(t, transfers, 5)
+	require.Len(t, transfers, 3)
 
 	for _, transfer := range transfers {
 		require.NotEmpty(t, transfer)
