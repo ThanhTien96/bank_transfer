@@ -18,6 +18,6 @@ sqlc:
 
 
 gotest:
-	PGHOST=localhost PGPORT=5432 PGDATABASE=simple_bank PGUSER=root PGPASSWORD=secret go test -v -cover ./...
+	go test -v -cover ./...
 
 .PONY: postgres createdb dropdb migrateup migratedown
