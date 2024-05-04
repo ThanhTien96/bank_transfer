@@ -31,7 +31,8 @@ jobs:
 
     - name: install migration go
       run: |
-        curl -L https://github.com/golang-migrate/migrate/releases/download/v4.17.1/migrate.linux-amd64.deb | tar xvz
+        curl -L https://github.com/golang-migrate/migrate/releases/download/v4.17.1/migrate.linux-amd64.tar.gz | tar xvz
+        sudo mv migrate.linux-amd64 /usr/bin/
         wich migrate
 
     - name: Run migration
