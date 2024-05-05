@@ -16,7 +16,6 @@ jobs:
           POSTGRES_DB: simple_bank
           POSTGRES_USER: root
           POSTGRES_PASSWORD: secret
-          # PGHOST=localhost PGPORT=5432 PGDATABASE=simple_bank PGUSER=root PGPASSWORD=secret
         ports:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
