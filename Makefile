@@ -16,8 +16,13 @@ migratedown:
 sqlc: 
 	sqlc generate
 
-
-gotest:
+test:
 	go test -v -cover ./...
 
-.PONY: postgres createdb dropdb migrateup migratedown
+server:
+	go run main.go
+
+mock:
+	mockgen -package mockdb -destination db/mock/Store.go simplebank/db/sqlc Store
+
+.PONY: postgres createdb dropdb migrateup migratedown test server mock
