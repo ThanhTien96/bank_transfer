@@ -86,3 +86,23 @@ $ make migrateup
 #if you want to clear the table in database immediately
 $ make migratedown
 ```
+
+<hr>
+
+### Mock db testing
+
+- First install gomock package https://github.com/golang/mock 
+- Make it is executeale from anywhere.
+
+```bash 
+	vim ~/.bashrc 
+	#or 
+	vim ~/.bash_profile
+
+	#add this one
+	export PATH=$PATH:~/go/bin
+```
+
+```bash
+$ mockgen -package mockdb -destination db/mock/Store.go simplebank/db/sqlc Store
+```
