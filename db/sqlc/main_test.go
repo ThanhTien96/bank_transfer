@@ -3,6 +3,7 @@ package db
 import (
 	"database/sql"
 	"log"
+	"os"
 	"simplebank/utils"
 	"testing"
 
@@ -26,5 +27,5 @@ func TestMain(m *testing.M) {
 
 	testQueries = New(testDB)
 
-	m.Run()
+	os.Exit(m.Run())
 }

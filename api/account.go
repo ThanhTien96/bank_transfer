@@ -55,13 +55,13 @@ func (s *Server) GetAccount(ctx *gin.Context) {
 	if err != nil {
 		if err == sql.ErrNoRows {
 			ctx.JSON(http.StatusNotFound, errResponse(http.StatusNotFound, err))
-		return
+			return
 		}
 		ctx.JSON(http.StatusInternalServerError, errResponse(http.StatusInternalServerError, err))
 		return
 	}
 
-	ctx.JSON(http.StatusOK, successResponse("Get account successfully", account))
+	ctx.JSON(http.StatusOK, account)
 }
 
 type ListAccountRequest struct {
